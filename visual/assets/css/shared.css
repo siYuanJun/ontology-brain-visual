@@ -1,0 +1,363 @@
+/* ============================================================
+   Ontology-Dome · 共享样式 shared.css
+   蓝图风格：深青黑底 + 网格引导线 + Space Grotesk + teal 强调
+   供 visual/ 下所有页面复用（index / skill / harness/*）
+   ============================================================ */
+
+/* ---------- 1. RESET & BASE ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background-color: var(--bg-0);
+  color: var(--fg-1);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  background-image:
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 42px 42px;
+}
+img { max-width: 100%; display: block; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+code, pre, .mono { font-family: var(--font-mono); }
+
+/* ---------- 2. CSS 变量 ---------- */
+:root {
+  --bg-0: #0a0e14;
+  --bg-1: #0f151d;
+  --bg-2: #141c26;
+  --bg-3: #1a2432;
+
+  --fg-0: #e6edf3;
+  --fg-1: #c9d4df;
+  --fg-2: #8b98a9;
+  --fg-3: #5a6879;
+
+  --accent: #5eead4;
+  --accent-dim: #2dd4bf33;
+  --accent-line: #2dd4bf55;
+
+  --ok: #34d399;
+  --warn: #fbbf24;
+  --new: #a78bfa;
+  --risk: #f87171;
+
+  --line-0: #1e293b;
+  --line-1: #273449;
+  --line-2: #334155;
+
+  --grid-color: #1e293b55;
+
+  --font-display: 'Space Grotesk', -apple-system, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+  --font-body: -apple-system, BlinkMacSystemFont, "Noto Sans CJK SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+
+  --sp-1: 4px;  --sp-2: 8px;  --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 24px; --sp-6: 32px; --sp-7: 48px; --sp-8: 64px; --sp-9: 96px;
+}
+
+/* ---------- 3. 页面容器 ---------- */
+.page-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--sp-5) var(--sp-6) var(--sp-8);
+}
+
+/* ---------- 4. 蓝图页眉（sticky） ---------- */
+.drawing-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--sp-3) 0;
+  border-bottom: 1px solid var(--line-1);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--fg-3);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  position: sticky;
+  top: 0;
+  background: rgba(10, 14, 20, 0.92);
+  backdrop-filter: blur(8px);
+  z-index: 100;
+  margin-bottom: var(--sp-6);
+}
+.drawing-header .left, .drawing-header .right {
+  display: flex; gap: var(--sp-5); align-items: center;
+}
+.drawing-header .status-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--ok); display: inline-block;
+  box-shadow: 0 0 8px var(--ok);
+}
+
+/* ---------- 5. 通用组件 ---------- */
+.tag {
+  display: inline-block;
+  padding: 2px 10px;
+  border: 1px solid var(--accent-line);
+  border-radius: 999px;
+  font-size: 12px;
+  font-family: var(--font-mono);
+  color: var(--accent);
+  background: var(--accent-dim);
+  margin: 2px 4px 2px 0;
+}
+.tag.new { border-color: var(--new); color: var(--new); background: transparent; }
+.tag.ok  { border-color: var(--ok);  color: var(--ok);  background: transparent; }
+.tag.warn{ border-color: var(--warn);color: var(--warn); background: transparent; }
+
+.btn {
+  display: inline-block;
+  padding: 10px 22px;
+  border: 1px solid var(--accent-line);
+  border-radius: 6px;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.btn:hover {
+  background: var(--accent-dim);
+  box-shadow: 0 0 16px var(--accent-dim);
+  text-decoration: none;
+}
+.btn.solid { background: var(--accent-dim); }
+
+.card {
+  background: var(--bg-1);
+  border: 1px solid var(--line-1);
+  border-radius: 10px;
+  padding: var(--sp-5);
+  transition: border-color 0.2s, transform 0.2s;
+}
+.card:hover { border-color: var(--accent-line); transform: translateY(-2px); }
+.card h3 { color: var(--fg-0); font-family: var(--font-display); margin-bottom: var(--sp-3); }
+.card p  { color: var(--fg-2); font-size: 14px; }
+
+.kpi-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--sp-4);
+  margin: var(--sp-6) 0;
+}
+.kpi-card {
+  background: var(--bg-1);
+  border: 1px solid var(--line-1);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  padding: var(--sp-4) var(--sp-5);
+}
+.kpi-card .kpi-num {
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--fg-0);
+}
+.kpi-card .kpi-num small { font-size: 15px; color: var(--fg-3); font-weight: 400; }
+.kpi-card .kpi-label { font-size: 12px; color: var(--fg-2); margin-top: 4px; letter-spacing: 0.04em; }
+.kpi-card.delta { border-left-color: var(--ok); }
+.kpi-card.warn { border-left-color: var(--warn); }
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--fg-0);
+  margin: var(--sp-7) 0 var(--sp-4);
+  padding-bottom: var(--sp-2);
+  border-bottom: 1px solid var(--line-1);
+  position: relative;
+}
+.section-title::before {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -1px;
+  width: 64px; height: 2px;
+  background: var(--accent);
+}
+.section-title .sub { display: block; font-size: 12px; font-weight: 400; color: var(--fg-3); font-family: var(--font-mono); letter-spacing: 0.06em; margin-bottom: 4px; }
+
+/* ---------- 6. 全局导航栏 ---------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: rgba(10, 14, 20, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line-1);
+}
+.navbar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--sp-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+}
+.navbar-logo {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--fg-0);
+  letter-spacing: 0.02em;
+}
+.navbar-logo span { color: var(--accent); }
+.navbar-logo:hover { text-decoration: none; }
+.navbar-tabs { display: flex; gap: var(--sp-1); }
+.navbar-tab {
+  padding: 6px 14px;
+  font-size: 13px;
+  font-family: var(--font-mono);
+  color: var(--fg-2);
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+.navbar-tab:hover { color: var(--fg-0); text-decoration: none; }
+.navbar-tab.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  font-weight: 600;
+}
+.hamburger {
+  display: none;
+  background: none;
+  border: 1px solid var(--line-2);
+  border-radius: 6px;
+  color: var(--fg-0);
+  font-size: 18px;
+  padding: 4px 12px;
+  cursor: pointer;
+}
+
+/* 面包屑 */
+.breadcrumb {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--fg-3);
+  margin: var(--sp-4) 0 var(--sp-5);
+}
+.breadcrumb a { color: var(--fg-2); }
+.breadcrumb a:hover { color: var(--accent); }
+.breadcrumb .sep { margin: 0 6px; color: var(--fg-3); }
+.breadcrumb .cur { color: var(--accent); }
+
+/* 关联跳转卡片 */
+.related-card {
+  margin-top: var(--sp-7);
+  padding: var(--sp-5);
+  border: 1px dashed var(--accent-line);
+  border-radius: 10px;
+  background: var(--accent-dim);
+}
+.related-card .label { font-family: var(--font-mono); font-size: 11px; color: var(--fg-3); text-transform: uppercase; letter-spacing: 0.08em; }
+.related-card .link-row { margin-top: var(--sp-3); display: flex; gap: var(--sp-3); flex-wrap: wrap; }
+
+/* 侧边锚点导航 */
+.section-nav {
+  position: fixed;
+  left: max(16px, calc((100vw - 1200px) / 2 - 190px));
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  z-index: 150;
+}
+.section-nav ul { list-style: none; }
+.section-nav a {
+  display: block;
+  color: var(--fg-3);
+  padding: 4px 0 4px 12px;
+  border-left: 1px solid var(--line-1);
+}
+.section-nav a.active { color: var(--accent); border-left-color: var(--accent); }
+.section-nav a:hover { color: var(--fg-1); text-decoration: none; }
+
+/* ---------- 7. 表格（判定矩阵等） ---------- */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--sp-4) 0;
+  font-size: 14px;
+}
+.data-table th {
+  background: var(--bg-3);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-align: left;
+  padding: 10px 14px;
+  border: 1px solid var(--line-1);
+  letter-spacing: 0.04em;
+}
+.data-table td {
+  padding: 10px 14px;
+  border: 1px solid var(--line-1);
+  color: var(--fg-1);
+}
+.data-table tr:nth-child(even) td { background: var(--bg-1); }
+.table-scroll { overflow-x: auto; }
+
+/* 工作流步骤卡 */
+.flow-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--sp-4);
+  margin: var(--sp-5) 0;
+}
+.flow-step {
+  background: var(--bg-1);
+  border: 1px solid var(--line-1);
+  border-radius: 10px;
+  padding: var(--sp-4) var(--sp-5);
+  position: relative;
+}
+.flow-step .step-no {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  margin-bottom: var(--sp-2);
+  display: block;
+}
+.flow-step h4 { color: var(--fg-0); font-family: var(--font-display); font-size: 15px; margin-bottom: var(--sp-2); }
+.flow-step p { color: var(--fg-2); font-size: 13px; }
+.flow-step .trap { margin-top: var(--sp-3); font-size: 12px; color: var(--warn); }
+
+/* ---------- 8. 响应式 ---------- */
+@media (max-width: 1024px) {
+  .section-nav { display: none; }
+}
+@media (max-width: 768px) {
+  body { font-size: 14px; }
+  .page-wrap { padding: var(--sp-4) var(--sp-4) var(--sp-7); }
+  .navbar-inner { padding: 0 var(--sp-4); }
+  .hamburger { display: block; }
+  .navbar-tabs {
+    display: none;
+    position: absolute;
+    top: 56px;
+    left: 0; right: 0;
+    flex-direction: column;
+    background: var(--bg-1);
+    border-bottom: 1px solid var(--line-1);
+    padding: var(--sp-3) var(--sp-4);
+  }
+  .navbar-tabs.open { display: flex; }
+  .navbar-tab { padding: 12px 8px; border-bottom: none; border-left: 2px solid transparent; }
+  .navbar-tab.active { border-left-color: var(--accent); }
+  .kpi-strip { grid-template-columns: 1fr 1fr; }
+  .flow-steps { grid-template-columns: 1fr; }
+  .drawing-header .right { display: none; }
+  .card { padding: var(--sp-4); }
+  .section-title { font-size: 19px; }
+}
+@media (max-width: 480px) {
+  .kpi-strip { grid-template-columns: 1fr; }
+}
