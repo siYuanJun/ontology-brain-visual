@@ -2,14 +2,264 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="refresh" content="0; url=./visual/index.html">
-<title>Ontology-Brain · 跳转中...</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ontology-Brain · 可视化首页</title>
+<link rel="stylesheet" href="./assets/css/shared.css">
 <style>
-  body { background: #0a0e14; color: #8b98a9; font-family: -apple-system, system-ui, sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
-  a { color: #5eead4; }
+  .hero { text-align: center; padding: var(--sp-8) 0 var(--sp-6); }
+  .hero h1 { font-family: var(--font-display); font-size: 56px; font-weight: 700; color: var(--fg-0); letter-spacing: 0.02em; }
+  .hero h1 span { color: var(--accent); }
+  .hero .slogan { color: var(--fg-2); font-size: 18px; margin-top: var(--sp-3); }
+  .hero .badges { margin-top: var(--sp-5); }
+  .hero .badge {
+    display: inline-block; margin: 0 6px; padding: 4px 14px;
+    border: 1px solid var(--line-2); border-radius: 999px;
+    font-family: var(--font-mono); font-size: 12px; color: var(--fg-2);
+  }
+  .hero .badge.b { color: var(--accent); border-color: var(--accent-line); }
+  .duo { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-5); }
+  .duo .card { padding: var(--sp-6); border-top: 3px solid var(--accent-line); }
+  .duo .card h2 { font-family: var(--font-display); color: var(--fg-0); font-size: 20px; margin-bottom: var(--sp-3); }
+  .duo .card .cap { color: var(--fg-3); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .duo .card p { color: var(--fg-2); margin: var(--sp-3) 0; font-size: 14px; }
+  .timeline { list-style: none; margin-top: var(--sp-4); }
+  .timeline li {
+    position: relative; padding: 0 0 var(--sp-5) var(--sp-6);
+    border-left: 1px solid var(--line-2);
+  }
+  .timeline li::before {
+    content: ''; position: absolute; left: -5px; top: 6px;
+    width: 9px; height: 9px; border-radius: 50%; background: var(--accent);
+    box-shadow: 0 0 8px var(--accent);
+  }
+  .timeline li.done::before { background: var(--ok); box-shadow: 0 0 8px var(--ok); }
+  .timeline li.next::before { background: var(--new); box-shadow: 0 0 8px var(--new); }
+  .timeline .t-phase { font-family: var(--font-mono); font-size: 12px; color: var(--fg-3); }
+  .timeline .t-title { color: var(--fg-0); font-weight: 600; }
+  .timeline .t-desc { color: var(--fg-2); font-size: 13px; margin-top: 2px; }
+  .cmd { background: var(--bg-3); border: 1px solid var(--line-1); border-radius: 6px; padding: 8px 12px; font-family: var(--font-mono); font-size: 12px; color: var(--fg-1); display: inline-block; margin: 4px 0; }
+  .flow-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: var(--sp-3); margin: var(--sp-5) 0; }
+  .flow-step { background: var(--bg-1); border: 1px solid var(--line-1); border-radius: 10px; padding: var(--sp-4); }
+  .flow-step .step-no { font-family: var(--font-mono); font-size: 11px; color: var(--accent); letter-spacing: 0.1em; margin-bottom: var(--sp-2); display: block; }
+  .flow-step h4 { color: var(--fg-0); font-family: var(--font-display); font-size: 14px; margin-bottom: var(--sp-2); }
+  .flow-step p { color: var(--fg-2); font-size: 12.5px; }
+  .brain-layer { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: var(--sp-4); margin-top: var(--sp-5); }
+  .layer { background: var(--bg-1); border: 1px solid var(--line-1); border-radius: 12px; padding: var(--sp-5); border-top: 3px solid var(--accent-line); }
+  .layer .layer-no { font-family: var(--font-mono); font-size: 11px; color: var(--accent); letter-spacing: 0.1em; }
+  .layer h3 { color: var(--fg-0); font-size: 15px; margin: var(--sp-2) 0; }
+  .layer p { color: var(--fg-2); font-size: 13px; }
+  .layer .l-tags { margin-top: var(--sp-3); }
+  .layer .l-tags span { display: inline-block; padding: 2px 10px; border: 1px solid var(--line-2); border-radius: 999px; font-family: var(--font-mono); font-size: 11px; color: var(--fg-2); margin: 2px 4px 2px 0; }
+  .doc-list { list-style: none; margin-top: var(--sp-4); }
+  .doc-list li { padding: var(--sp-3) var(--sp-4); background: var(--bg-1); border: 1px solid var(--line-1); border-radius: 8px; margin-bottom: var(--sp-3); }
+  .doc-list .d-title { color: var(--fg-0); font-weight: 600; }
+  .doc-list .d-desc { color: var(--fg-2); font-size: 13px; margin-top: 2px; }
+  .doc-list .d-q { font-family: var(--font-mono); font-size: 11px; color: var(--fg-3); }
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 36px; }
+    .duo { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
-<p>正在跳转到 <a href="./visual/index.html">Ontology-Brain 可视化首页</a>...</p>
+<script src="./assets/js/navigation.js"></script>
+<script>injectNavbar('home', '.');</script>
+
+<div class="page-wrap">
+
+  <!-- 1. Hero -->
+  <section class="hero" id="sec-hero">
+    <h1>Ontology<span>-Brain</span></h1>
+    <p class="slogan">本体工程师数字员工大脑——把业务文档自动建成可检索、可评测、可扩展的本体知识库</p>
+    <div class="badges">
+      <span class="badge b">数字员工大脑</span>
+      <span class="badge">方法论沉淀</span>
+      <span class="badge">六环流水线</span>
+      <span class="badge">Harness 团队 7 角色</span>
+      <span class="badge">多业务域实战</span>
+    </div>
+  </section>
+
+  <!-- 2. 使用场景 -->
+  <section id="sec-scenario">
+    <h2 class="section-title"><span class="sub">01 · USE SCENARIO</span>使用场景</h2>
+    <div class="card">
+      <p><b style="color:var(--fg-0)">赋能谁：</b>本体工程师、知识工程团队，以及需要把企业知识资产变成大模型可用知识的企业。</p>
+      <p style="margin-top:var(--sp-2);"><b style="color:var(--fg-0)">什么场景：</b>企业业务文档（制度、流程、条款、知识条目）散落各处，直接做大模型问答时检索不准、质量不可测、维护不可扩展。</p>
+      <p style="margin-top:var(--sp-2);"><b style="color:var(--fg-0)">解决什么：</b>把「专家手工做本体建模」这一慢、贵、不可复制的环节，变为「数字员工流水线自动产出 6 份标准产物」——术语表、建模范围、本体 Schema、实例库、RAG 检索、对比评测，一条命令跑通。</p>
+      <div class="lead" style="margin-top:var(--sp-4);">输入业务文档 → 六环流水线 → 可检索、可评测、可扩展的本体知识库——本体建模从「人做」变成「大脑自主运转」。</div>
+    </div>
+  </section>
+
+  <!-- 3. 大脑能力体系 -->
+  <section id="sec-brain">
+    <h2 class="section-title"><span class="sub">02 · BRAIN CAPABILITY</span>大脑能力体系 · 四层结构</h2>
+    <div class="brain-layer">
+      <div class="layer">
+        <div class="layer-no">LAYER A · COGNITION</div>
+        <h3>认知层 · 方法论</h3>
+        <p>大脑的"思想"：岗位认知、完整价值链、端到端落地方法——先想清楚本体工程师怎么创造价值，再动手。</p>
+        <div class="l-tags"><span>岗位认知</span><span>价值链</span><span>落地方法</span></div>
+      </div>
+      <div class="layer">
+        <div class="layer-no">LAYER B · ENGINEERING</div>
+        <h3>工程层 · 六环流水线</h3>
+        <p>大脑的"手"：一条命令跑通 业务调研 → 概念识别 → 本体建模 → 数据映射 → 上层消费 → 价值验证，产出 6 份标准产物。</p>
+        <div class="l-tags"><span>CLI</span><span>6 份产物</span><span>可复现</span></div>
+      </div>
+      <div class="layer">
+        <div class="layer-no">LAYER C · SOLIDIFICATION</div>
+        <h3>固化层 · Skill 工程</h3>
+        <p>大脑的"肌肉记忆"：方法论固化为 business-to-ontology Skill——业务话进、本体 JSON 出，任意 AI 会话可调度。</p>
+        <div class="l-tags"><span>Skill</span><span>四步工作流</span><span>可调度</span></div>
+      </div>
+      <div class="layer">
+        <div class="layer-no">LAYER D · VERIFICATION</div>
+        <h3>验证层 · 实战闭环</h3>
+        <p>大脑的"考场"：跨业务域六环实战全记录，可运行、可复现——Schema / 实例库 / RAG 代码 / 对比评测逐环落盘。</p>
+        <div class="l-tags"><span>多业务域</span><span>对比评测</span><span>全记录</span></div>
+      </div>
+    </div>
+    <div class="lead" style="margin-top:var(--sp-4);">认知 → 工程 → 固化 → 验证：方法论不是纸面文章，而是每一环都有产物、每一步都能复现的完整大脑。</div>
+  </section>
+
+  <!-- 4. 双能力概览 -->
+  <section id="sec-duo">
+    <h2 class="section-title"><span class="sub">03 · DUAL CAPABILITY</span>双能力总览</h2>
+    <div class="duo">
+      <div class="card">
+        <div class="cap">CAPABILITY A · SKILL ENGINEERING</div>
+        <h2>Skill 工程</h2>
+        <p>business-to-ontology：业务自然语言 → 本体 JSON，四步工作流 + 三步判定矩阵 + 回读自检，可被任意 AI 会话调度。</p>
+        <a class="btn solid" href="./skill/index.html">进入 Skill 工程 →</a>
+      </div>
+      <div class="card">
+        <div class="cap">CAPABILITY B · HARNESS ENGINEERING</div>
+        <h2>Harness 团队</h2>
+        <p>本体工程师数字员工：7 角色分层协作（产品/监督/执行/质量/工程），六环流水线 + 三道质量门 + 反作弊防线。</p>
+        <a class="btn solid" href="./harness/analysis.html">进入团队分析 →</a>
+        <a class="btn" href="./harness/upgrade.html" style="margin-left:8px;">升级路线</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. KPI 看板 -->
+  <section id="sec-kpi">
+    <h2 class="section-title"><span class="sub">04 · KEY METRICS</span>关键指标</h2>
+    <div class="kpi-strip">
+      <div class="kpi-card"><div class="kpi-num">6<small> 环</small></div><div class="kpi-label">本体流水线</div></div>
+      <div class="kpi-card"><div class="kpi-num">7<small> 角色</small></div><div class="kpi-label">Harness 团队</div></div>
+      <div class="kpi-card"><div class="kpi-num">百余<small> 测试</small></div><div class="kpi-label">单元 + 集成</div></div>
+      <div class="kpi-card warn"><div class="kpi-num">多域<small> 实战</small></div><div class="kpi-label">跨业务域验证</div></div>
+    </div>
+  </section>
+
+  <!-- 6. 六环流水线 -->
+  <section id="sec-pipeline">
+    <h2 class="section-title"><span class="sub">05 · PIPELINE</span>六环流水线 · 每环一份标准产物</h2>
+    <div class="flow-steps">
+      <div class="flow-step"><span class="step-no">环 ①</span><h4>业务调研</h4><p>产物：<b>术语对齐表</b>——把业务语言对齐到可建模的术语</p></div>
+      <div class="flow-step"><span class="step-no">环 ②</span><h4>概念识别</h4><p>产物：<b>建模范围清单</b>——划定本体建模的边界</p></div>
+      <div class="flow-step"><span class="step-no">环 ③</span><h4>本体 Schema</h4><p>产物：<b>结构化本体 JSON</b>——概念与关系的权威定义</p></div>
+      <div class="flow-step"><span class="step-no">环 ④</span><h4>数据映射</h4><p>产物：<b>实例库</b>——灌数脚本把业务数据映射进本体</p></div>
+      <div class="flow-step"><span class="step-no">环 ⑤</span><h4>RAG 检索</h4><p>产物：<b>有本体检索代码</b>——用本体增强召回与精度</p></div>
+      <div class="flow-step"><span class="step-no">环 ⑥</span><h4>对比评测</h4><p>产物：<b>评测报告</b>——有/无对照证明本体价值</p></div>
+    </div>
+  </section>
+
+  <!-- 7. 知识库方法论 -->
+  <section id="sec-method">
+    <h2 class="section-title"><span class="sub">06 · METHODOLOGY</span>知识库方法论 · 大脑的认知底座</h2>
+    <p style="color:var(--fg-2);">三份方法论构成大脑的"思想底座"：想清楚岗位怎么创造价值 → 看清六环全貌 → 掌握可复用落地方法。</p>
+    <ul class="doc-list">
+      <li>
+        <div class="d-q">DOC 01 · 认知总纲</div>
+        <div class="d-title">本体工程师：岗位认知与价值链路</div>
+        <div class="d-desc">本体工程师干什么、怎么给企业 / 团队 / 岗位创造价值——向任何人解释这个岗位价值的入口。</div>
+      </li>
+      <li>
+        <div class="d-q">DOC 02 · 价值链全貌</div>
+        <div class="d-title">本体工程师完整价值链：为什么产出 JSON 不是终点</div>
+        <div class="d-desc">本体工作六环全貌：JSON 只是中间产物，真正的价值在可检索、可评测、可扩展的知识资产与上层消费。</div>
+      </li>
+      <li>
+        <div class="d-q">DOC 03 · 落地方法</div>
+        <div class="d-title">知识库本体落地：端到端案例与方法</div>
+        <div class="d-desc">从业务痛点出发，走完六环的完整落地方法——要开始做本体项目时的可复用路线。</div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 8. 实战闭环与价值 -->
+  <section id="sec-practice">
+    <h2 class="section-title"><span class="sub">07 · PRACTICE & VALUE</span>实战闭环 · 大脑的价值证明</h2>
+    <div class="grid g2" style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-4);">
+      <div class="card" style="margin-top:var(--sp-4);">
+        <div class="cap">端到端实战</div>
+        <h3 style="color:var(--fg-0);font-size:15px;margin:var(--sp-2) 0;">六环全记录 · 可运行可复现</h3>
+        <p>跨业务域实战走通完整六环：从仿真业务文档出发，逐环产出术语表、范围清单、Schema、实例库、RAG 代码与对比评测报告——任何一步都可重新运行、重新验证。</p>
+      </div>
+      <div class="card" style="margin-top:var(--sp-4);">
+        <div class="cap">价值证明</div>
+        <h3 style="color:var(--fg-0);font-size:15px;margin:var(--sp-2) 0;">本体为什么值得建</h3>
+        <p>对比评测证明：引入本体后检索精度、召回与综合得分全面提升；跨业务域"串答"问题从高发到归零——本体最核心的价值 = 用概念关系直接拦下不匹配的答案。</p>
+      </div>
+    </div>
+    <div class="lead" style="margin-top:var(--sp-4);">大脑的每一次运转都留下可审计的产物与可复现的评测——这是数字员工与"调一个接口"的本质区别。</div>
+  </section>
+
+  <!-- 9. 演进路线 -->
+  <section id="sec-roadmap">
+    <h2 class="section-title"><span class="sub">08 · ROADMAP</span>演进路线</h2>
+    <ul class="timeline">
+      <li class="done">
+        <div class="t-phase">PHASE 1</div>
+        <div class="t-title">六环实战闭环</div>
+        <div class="t-desc">端到端跑通「业务文档 → 6 份标准产物」，可运行、可复现</div>
+      </li>
+      <li class="done">
+        <div class="t-phase">PHASE 2</div>
+        <div class="t-title">流水线 CLI 化</div>
+        <div class="t-desc">一条命令跑通六环，产物标准化，测试体系随行</div>
+      </li>
+      <li class="done">
+        <div class="t-phase">PHASE 3</div>
+        <div class="t-title">多域扩展与团队落盘</div>
+        <div class="t-desc">跨业务域验证 + 对比评测量化提升 + Harness 团队 7 角色落盘</div>
+      </li>
+      <li class="next">
+        <div class="t-phase">PHASE 4 · 大脑形态</div>
+        <div class="t-title">数字员工大脑介入业务工程</div>
+        <div class="t-desc">本体大脑作为知识底座，接入具体数据员工工程——业务文档进、可检索可评测的知识资产出</div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 10. 快速入口 -->
+  <section id="sec-entry">
+    <h2 class="section-title"><span class="sub">09 · QUICK ACCESS</span>快速入口</h2>
+    <div class="card" style="margin-bottom:var(--sp-4);">
+      <h3>知识库 · 方法论沉淀</h3>
+      <p>岗位认知与价值链路 / 完整价值链（为什么产出 JSON 不是终点）/ 端到端落地方法 / 六环实战全记录 → <code>knowledge-base/</code></p>
+    </div>
+    <div class="card" style="margin-bottom:var(--sp-4);">
+      <h3>实战复现</h3>
+      <p><code class="cmd">python3 pipeline/run_pipeline.py --input &lt;业务文档目录&gt;</code></p>
+      <p><code class="cmd">python3 -m pytest tests/ -q</code> <span style="color:var(--fg-3)">← 百余测试</span></p>
+    </div>
+    <div class="related-card">
+      <div class="label">SOURCE OF TRUTH</div>
+      <div class="link-row">
+        <a class="btn" href="./skill/index.html">Skill 工程展示</a>
+        <a class="btn" href="./harness/analysis.html">Harness 团队分析</a>
+        <a class="btn" href="./harness/upgrade.html">Harness 升级路线</a>
+      </div>
+    </div>
+  </section>
+
+  <p style="text-align:center; margin-top:var(--sp-8); font-family:var(--font-mono); font-size:11px; color:var(--fg-3);">
+    Ontology-Brain · 数字员工大脑可视化 · 量级口径
+  </p>
+</div>
 </body>
 </html>
