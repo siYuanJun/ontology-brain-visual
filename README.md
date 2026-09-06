@@ -1,6 +1,6 @@
-# Ontology-Dome Visual · 视图层
+# Ontology-Brain Visual · 视图层
 
-本体工程师数字员工 **Harness 团队 + Skill 工程**的对外展示层，与源码层（`ontology-dome`）分离的独立仓库。**本层可开源**，源码层（流水线代码/领域配置）保持私有。
+本体工程师数字员工 **Harness 团队 + Skill 工程**的对外展示层，与源码层（`ontology-brain`）分离的独立仓库。**本层可开源**，源码层（流水线代码/领域配置）保持私有。
 
 ## 展示内容
 
@@ -28,25 +28,25 @@ python3 -m http.server 8000 --directory .
 
 1. 推送 `main` 分支到 GitHub
 2. 仓库 Settings → Pages → Source 选 **GitHub Actions**
-3. 等待 Workflow 执行，访问 `https://<user>.github.io/ontology-dome-visual/`
+3. 等待 Workflow 执行，访问 `https://<user>.github.io/ontology-brain-visual/`
 
 根目录 `index.html` 自动跳转 `./visual/index.html`（全站相对路径，子路径部署兼容）。
 
 ## 与源码层的关系
 
 ```
-ontology-dome/          # 源码层（私有）：pipeline / core / profiles / docs / .claude
-ontology-dome-visual/   # 视图层（本仓库，可开源）：visual/ 展示页 + legacy 蓝图资产
+ontology-brain/          # 源码层（私有）：pipeline / core / profiles / docs / .claude
+ontology-brain-visual/   # 视图层（本仓库，可开源）：visual/ 展示页 + legacy 蓝图资产
 ```
 
 - 视图层只含静态展示资产，不含任何流水线代码与领域配置
 - 展示数据（双域评测数字等）为快照，刷新需从源码层 `pipeline/output/*/eval_result.json` 手动同步
-- 团队定义源：`skills/ai-skills-prompt/harness/ontology-dome-team/`（Skill 工程仓库）
+- 团队定义源：`skills/harness/ontology-brain-team/`（Skill 工程仓库）
 
 ## 目录结构
 
 ```
-ontology-dome-visual/
+ontology-brain-visual/
 ├── index.html                 # 入口（跳转 visual/index.html）
 ├── visual/                    # 展示页
 │   ├── index.html             # Dashboard

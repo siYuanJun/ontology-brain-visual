@@ -1,5 +1,5 @@
 /**
- * Ontology-Dome 全局导航栏注入脚本
+ * Ontology-Brain 全局导航栏注入脚本
  * 每个页面 <body> 开头调用 injectNavbar('pageKey') 注入 4 Tab 导航
  * pageKey: 'home' | 'skill' | 'harness-analysis' | 'harness-upgrade'
  */
