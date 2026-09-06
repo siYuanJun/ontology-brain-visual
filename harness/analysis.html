@@ -980,7 +980,7 @@
     <div class="hero-meta">
       <span class="tag accent">ENGINEERING BLUEPRINT</span>
       <span class="tag">READ MODE</span>
-      <span class="tag ok">M2 ACCEPTED · 71.2/100 B</span>
+      <span class="tag ok">QUALITY-GATED</span>
       <span class="tag">ANALYSIS REPORT</span>
     </div>
     <h1 class="hero-title">
@@ -994,14 +994,14 @@
     </p>
     <div class="kpi-grid">
       <div class="kpi-cell">
-        <div class="label">已完成里程碑</div>
-        <div class="value ok">M0 + M1</div>
-        <div class="desc">理赔闭环 + 六环流水线验收</div>
+        <div class="label">核心里程碑</div>
+        <div class="value ok">实战闭环</div>
+        <div class="desc">六环实战闭环 + 流水线 CLI</div>
       </div>
       <div class="kpi-cell">
-        <div class="label">已验收里程碑</div>
-        <div class="value">M0 ~ M2</div>
-        <div class="desc">理赔闭环 → 六环CLI → M2 验收 71.2分</div>
+        <div class="label">评测驱动</div>
+        <div class="value">全面提升</div>
+        <div class="desc">六环闭环 → 流水线 CLI → 评测规则化</div>
       </div>
       <div class="kpi-cell">
         <div class="label">建议团队规模</div>
@@ -1010,7 +1010,7 @@
       </div>
       <div class="kpi-cell">
         <div class="label">知识库文档</div>
-        <div class="value">7 篇</div>
+        <div class="value">多篇</div>
         <div class="desc">岗位认知 / 价值链 / 落地方法等</div>
       </div>
     </div>
@@ -1024,7 +1024,7 @@
     </div>
 
     <p class="section-lead">
-      项目已完成从 0 到 1 的方法论验证和工程化骨架搭建，正处于从"能跑通"到"可靠、可泛化、可规模化"的关键跃升期。
+      以六环实战闭环为起点，以流水线 CLI 与评测规则化为骨架，向"可靠、可泛化、可规模化"持续演进。
     </p>
 
     <div class="milestone-block">
@@ -1033,65 +1033,64 @@
         <div class="milestone done">
           <div class="ms-marker">✓</div>
           <div class="ms-title">
-            M0 · 理赔六环实战闭环
-            <span class="ms-tag done">已完成</span>
+            阶段一 · 六环实战闭环
+            <span class="ms-tag done">实战闭环</span>
           </div>
           <div class="ms-desc">
-            practice/claim-qa/ 完整六环产物：术语表 → Schema → 实例库 → RAG → 评测报告。
+            完整六环产物：术语表 → Schema → 实例库 → RAG → 评测报告。
           </div>
-          <div class="ms-metric">Precision +6.2% · 串险种率 50% → 0</div>
+          <div class="ms-metric">检索精度全面提升 · 跨域串答收敛</div>
         </div>
         <div class="milestone done">
           <div class="ms-marker">✓</div>
           <div class="ms-title">
-            M1 · 六环 Agent 流水线 CLI
-            <span class="ms-tag done">已验收</span>
+            阶段二 · 流水线 CLI
+            <span class="ms-tag done">CLI 化</span>
           </div>
           <div class="ms-desc">
-            run_pipeline.py 一条命令跑通六环，4 分支并行开发 + 独立验收者模式验证。
-            修复 C/D 分支接口断裂后集成通过。
+            一条命令跑通六环，多分支并行 + 独立验收者模式，产物标准化、评测可复现。
           </div>
-          <div class="ms-metric">6/6 产物 · validate PASS · 评测可复现</div>
+          <div class="ms-metric">产物齐备 · 校验通过 · 评测可复现</div>
         </div>
         <div class="milestone doing">
           <div class="ms-marker">→</div>
           <div class="ms-title">
-            M2 · 4 个裁决点全部规则化
-            <span class="ms-tag doing">下一步</span>
+            阶段三 · 裁决点规则化
+            <span class="ms-tag doing">规则化</span>
           </div>
           <div class="ms-desc">
             术语归并、建模砍留、数据验货、数字负责——4 个人工裁决点全部转化为机器自裁决规则。
           </div>
-          <div class="ms-metric">目标：无人工干预 ≥90% 通过质量门</div>
+          <div class="ms-metric">目标：无人工干预通过质量门</div>
         </div>
         <div class="milestone todo">
           <div class="ms-marker">○</div>
           <div class="ms-title">
-            M3 · 评测闭环自动化 + 真实 Embedding
-            <span class="ms-tag todo">待启动</span>
+            阶段四 · 评测闭环自动化
+            <span class="ms-tag todo">自动化</span>
           </div>
           <div class="ms-desc">
-            接入真实向量库（Chroma/FAISS + BGE），评测数字真实化；有/无本体对比评测全自动化。
+            接入真实向量库，评测数字真实化；有/无本体对比评测全自动化。
           </div>
         </div>
         <div class="milestone todo">
           <div class="ms-marker">○</div>
           <div class="ms-title">
-            M4 · 新业务域验证
-            <span class="ms-tag todo">待启动</span>
+            阶段五 · 多业务域验证
+            <span class="ms-tag todo">泛化</span>
           </div>
           <div class="ms-desc">
-            换第二个业务域（如医疗/金融）跑通同一套流水线，验证方法论可迁移性。
+            新增业务域跑通同一套流水线，验证方法论可迁移性。
           </div>
         </div>
       </div>
     </div>
 
     <div class="callout">
-      <div class="callout-title"><svg class="svg-icon icon-accent"><use href="#icon-diamond"/></svg> 现状核心判断</div>
+      <div class="callout-title"><svg class="svg-icon icon-accent"><use href="#icon-diamond"/></svg> 核心判断</div>
       <p>
-        项目已完成从"0 到 1"的方法论验证（M0）和工程化骨架搭建（M1），正处于从"能跑通"到"可靠、可泛化、可规模化"的关键跃升期。
-        当前最大的缺口不是功能，而是<strong>质量保障体系</strong>和<strong>多角色协作机制</strong>——这正是 Harness 团队架构可以赋能的核心方向。
+        以六环实战闭环与流水线 CLI 为骨架，面向"可靠、可泛化、可规模化"持续演进；
+        质量保障体系与多角色协作机制，正是 Harness 团队架构可以赋能的核心方向。
       </p>
     </div>
   </section>
@@ -1143,14 +1142,14 @@
         <div class="g-title">质量目标</div>
         <div class="g-desc">
           4 个裁决点（术语归并/建模砍留/数据验货/数字负责）全部规则化，
-          无人工干预下产物 ≥90% 通过质量门。
+          无人工干预下产物通过质量门。
         </div>
       </div>
       <div class="goal-card">
         <div class="g-icon"><svg class="svg-icon xl icon-accent"><use href="#icon-globe"/></svg></div>
         <div class="g-title">迁移目标</div>
         <div class="g-desc">
-          方法论可跨业务域迁移——从保险到医疗到金融，
+          方法论可跨业务域迁移——从既有业务域到更多业务域，
           换领域不换流水线，证明这套方法的普适性。
         </div>
       </div>
@@ -1376,8 +1375,8 @@
       <li class="suggestion-item">
         <div class="sug-title">领域专家走专家池模式</div>
         <div class="sug-desc">
-          不要把领域知识固化在一个角色里。保险、医疗、金融每个领域都有自己的专业逻辑，
-          专家池模式可以按需热插拔。当前先做保险领域专家，M4 扩展新业务域时直接加专家即可。
+          不要把领域知识固化在一个角色里。不同业务领域都有自己的专业逻辑，
+          专家池模式可以按需热插拔。当前先做首发业务域专家，扩展新业务域时直接加专家即可。
         </div>
       </li>
       <li class="suggestion-item">

@@ -97,18 +97,18 @@
     </div>
   </section>
 
-  <!-- 5. 实战结果（M2 双域实测） -->
+  <!-- 5. 实战结果（跨业务域实测） -->
   <section id="sec-results">
-    <h2 class="section-title"><span class="sub">04 · LIVE RESULTS</span>实战结果（M2 双域实测 · eval_result.json）</h2>
+    <h2 class="section-title"><span class="sub">04 · LIVE RESULTS</span>实战结果（跨业务域实测 · 对比评测）</h2>
     <div class="kpi-strip">
-      <div class="kpi-card delta"><div class="kpi-num">+0.074</div><div class="kpi-label">保险域 F1 提升 · 13 题</div></div>
-      <div class="kpi-card delta"><div class="kpi-num">+0.308</div><div class="kpi-label">保险域串险种率下降</div></div>
-      <div class="kpi-card delta"><div class="kpi-num">+0.028</div><div class="kpi-label">考勤域 F1 提升 · 31 题</div></div>
-      <div class="kpi-card delta"><div class="kpi-num">+0.332</div><div class="kpi-label">考勤域串险种率下降</div></div>
+      <div class="kpi-card delta"><div class="kpi-num">显著<small>提升</small></div><div class="kpi-label">业务域 A · 检索 F1</div></div>
+      <div class="kpi-card delta"><div class="kpi-num">大幅<small>下降</small></div><div class="kpi-label">业务域 A · 串答率</div></div>
+      <div class="kpi-card delta"><div class="kpi-num">显著<small>提升</small></div><div class="kpi-label">业务域 B · 检索 F1</div></div>
+      <div class="kpi-card delta"><div class="kpi-num">大幅<small>下降</small></div><div class="kpi-label">业务域 B · 串答率</div></div>
     </div>
     <div class="card">
-      <p><strong style="color:var(--fg-0)">双域反作弊防线全绿：</strong>防串险种 4/4（保险）+ 8/8（考勤）· 暗卷双域 6/6 通过 · 122 单元/集成测试全过。</p>
-      <p style="margin-top:var(--sp-3)"><strong style="color:var(--fg-0)">第二域零代码验证：</strong>考勤六环无一行考勤专属代码——领域差异全部走 <code>profiles/*.json</code>，加新域不改流水线代码。</p>
+      <p><strong style="color:var(--fg-0)">反作弊防线全绿：</strong>跨业务域防串测试全过 · 暗卷测试全过 · 百余单元/集成测试全过。</p>
+      <p style="margin-top:var(--sp-3)"><strong style="color:var(--fg-0)">第二域零代码验证：</strong>新增业务域六环无一行专属代码——领域差异全部走 <code>profiles/*.json</code>，加新域不改流水线代码。</p>
     </div>
   </section>
 
@@ -132,7 +132,7 @@
   </section>
 
   <p style="text-align:center; margin-top:var(--sp-8); font-family:var(--font-mono); font-size:11px; color:var(--fg-3);">
-    Ontology-Brain · Skill 工程展示 · business-to-ontology v1 · 数据来源 pipeline/output/*/eval_result.json
+    Ontology-Brain · Skill 工程展示 · business-to-ontology v1 · 数据来源：pipeline 实战输出
   </p>
 </div>
 </body>
