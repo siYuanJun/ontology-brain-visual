@@ -23,7 +23,7 @@
     var logo = document.createElement('a');
     logo.className = 'navbar-logo';
     logo.href = base + '/index.html';
-    logo.innerHTML = 'Ontology<span>-Dome</span>';
+    logo.innerHTML = 'Ontology<span>-Brain</span>';
     inner.appendChild(logo);
 
     var tabs = document.createElement('div');
